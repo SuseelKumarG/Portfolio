@@ -23,7 +23,7 @@ window.addEventListener('load', () => {
 // Typewriter animation
 const typingText = document.getElementById('typing-text');
 if (typingText) {
-  const languages = ['code in C', 'code in C++', 'code in Python', 'code in Java', 'code in JavaScript', 'love to Sketch', 'am still sane'];
+  const languages = ['Click image for Resume','I code in C', 'I code in C++', 'I code in Python', 'I code in Java', 'I code in JavaScript', 'I love to Sketch', 'I am still sane'];
   let langIndex = 0;
   let index = 0;
   let isErasing = false;
@@ -232,7 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!musicToggle || !backgroundMusic) return;
 
   backgroundMusic.loop = true;
-  backgroundMusic.volume = 0.02;
+  backgroundMusic.volume = 0.035;
 
   const STORAGE_KEY = 'musicPlaying';
   let isPlaying = localStorage.getItem(STORAGE_KEY) === 'true';

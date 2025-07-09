@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const typingText = document.getElementById('typing-texter');
   if (typingText) {
-    const texts = ['on Images'];
+    const texts = ['Click on Images'];
     let textIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
