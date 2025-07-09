@@ -225,3 +225,46 @@ style.innerHTML = `
   }
 `;
 document.head.appendChild(style);
+// Music toggle with persistence and reliable load
+document.addEventListener('DOMContentLoaded', () => {
+  const musicToggle = document.getElementById('music-toggle');
+  const backgroundMusic = document.getElementById('background-music');
+  if (!musicToggle || !backgroundMusic) return;
+
+  backgroundMusic.loop = true;
+  backgroundMusic.volume = 0.02;
+
+  const STORAGE_KEY = 'musicPlaying';
+  let isPlaying = localStorage.getItem(STORAGE_KEY) === 'true';
+
+  // Initialize audio state based on stored preference
+  if (isPlaying) {
+    backgroundMusic.muted = false;
+    backgroundMusic.play().catch(() => {});
+    musicToggle.innerHTML = '<i class="bi bi-volume-up-fill"></i>';
+    musicToggle.classList.add('playing');
+  } else {
+    backgroundMusic.pause();
+    backgroundMusic.muted = true;
+    musicToggle.innerHTML = '<i class="bi bi-volume-mute-fill"></i>';
+    musicToggle.classList.remove('playing');
+  }
+
+  // Toggle on click
+  musicToggle.addEventListener('click', () => {
+    isPlaying = !isPlaying;
+    if (isPlaying) {
+      backgroundMusic.muted = false;
+      backgroundMusic.play().catch(() => {});
+      musicToggle.innerHTML = '<i class="bi bi-volume-up-fill"></i>';
+      musicToggle.classList.add('playing');
+    } else {
+      backgroundMusic.pause();
+      backgroundMusic.muted = true;
+      musicToggle.innerHTML = '<i class="bi bi-volume-mute-fill"></i>';
+      musicToggle.classList.remove('playing');
+    }
+    localStorage.setItem(STORAGE_KEY, isPlaying.toString());
+  });
+});
+

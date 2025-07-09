@@ -288,3 +288,29 @@ nav a.active {
     transform: scale(1);
   }
 }
+#music-control {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.music-button {
+  background-color: #33c1c1;
+  border: none;
+  color: white;
+  padding: 12px;
+  font-size: 20px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.music-button.playing {
+  background-color: #28a8a8;
+}
+
+.music-button:hover {
+  transform: scale(1.1);
+}
+
